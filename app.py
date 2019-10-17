@@ -9,23 +9,21 @@ sensores_list = []
 
 @app.route('/')
 def index():
+    return '<h1>TIPOS DE SENSORES</h1><p>Con estos enpoints puedes crear y ver los tipos de sensores</p><br>/CrearSensor  y  /listarSensores'
+
+@app.route('/crearSensor',methods=['GET'])
+def crearSensor():
     return render_template('crearSensor.html', variables=variables_list)
 
-# @app.route('/crearSensor',methods=['GET'])
-# def crearSensor():
-#     return render_template('crearSensor.html', variables=variables_list)
+@app.route('/listarSensores',methods=['GET'])
+def listarSensores():
+    # sensores_list = requests.get('http://localhost:5000/tipoSensores').json()
+    return render_template('listarSensores.html', sensores=sensores_list)
 
-# @app.route('/listarSensores',methods=['GET'])
-# def listarSensores():
-#     # sensores_list = requests.get('http://localhost:5000/tipoSensores').json()
-#     return render_template('listarSensores.html', sensores=sensores_list)
-
-# @app.route('/guardarSensor',methods=['POST'])
-# def guardarSensor():
-#     sensor = dict(request.values)
-#     sensor['precio'] = int(sensor['precio'])
-#     # requests.post('http://localhost:5000/tipoSensores',json=sensor)
-#     # sensores_list = requests.get('http://localhost:5000/tipoSensores').json()
-#     return render_template('listarSensores.html', sensores=sensores_list)
-#
-# app.run(port=8000,debug=True)
+@app.route('/guardarSensor',methods=['POST'])
+def guardarSensor():
+    sensor = dict(request.values)
+    sensor['precio'] = int(sensor['precio'])
+    # requests.post('http://localhost:5000/tipoSensores',json=sensor)
+    # sensores_list = requests.get('http://localhost:5000/tipoSensores').json()
+    return render_template('listarSensores.html', sensores=sensores_list)
