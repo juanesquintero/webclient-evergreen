@@ -27,5 +27,5 @@ def index():
 #     # requests.post('http://localhost:5000/tipoSensores',json=sensor)
 #     # sensores_list = requests.get('http://localhost:5000/tipoSensores').json()
 #     return render_template('listarSensores.html', sensores=sensores_list)
-
-app.run(port=8000,debug=True)
+#
+# app.run(port=8000,debug=True)
