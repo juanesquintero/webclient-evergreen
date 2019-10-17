@@ -16,6 +16,7 @@ def crearSensor():
 @app.route('/listarSensores',methods=['GET'])
 def listarSensores():
     # sensores_list = requests.get('http://localhost:5000/tipoSensores').json()
+    sensores_list = []
     print (sensores_list)
     return render_template('listarSensores.html', sensores=sensores_list)
 
