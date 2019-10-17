@@ -5,6 +5,10 @@ app = Flask(__name__, template_folder='templates')
 
 variables_list = ['PH','Temperatura','Humedad Tierra','Humedad Aire','Distancia','Luz Solar']
 
+@app.route('/')
+def crearSensor():
+    return 'Tipo de sensores'
+
 @app.route('/crearSensor',methods=['GET'])
 def crearSensor():
     return render_template('crearSensor.html', variables=variables_list)
